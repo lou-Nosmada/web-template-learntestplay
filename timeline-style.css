@@ -1,0 +1,34 @@
+/* Main timeline styles */
+.timeline-item {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    opacity: 0; /* Initially transparent, no animation here */
+    transform: translateY(20px); /* Starts lower */
+}
+
+/* Adjustments for left and right items */
+.timeline-item.left {
+    justify-content: flex-end;
+}
+.timeline-item.right {
+    justify-content: flex-start;
+}
+
+/* Style when an item becomes active (visible) */
+.timeline-item.active {
+    animation: fadeInSlide 1s ease-in-out forwards;
+}
+
+/* Animation keyframes */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
