@@ -1,0 +1,219 @@
+Timeline script in Java
+
+
+CSS
+-------
+
+/* Main timeline styles */
+.timeline-item {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    opacity: 0; /* Initially transparent, no animation here */
+    transform: translateY(20px); /* Starts lower */
+}
+
+/* Adjustments for left and right items */
+.timeline-item.left {
+    justify-content: flex-end;
+}
+.timeline-item.right {
+    justify-content: flex-start;
+}
+
+/* Style when an item becomes active (visible) */
+.timeline-item.active {
+    animation: fadeInSlide 1s ease-in-out forwards;
+}
+
+/* Animation keyframes */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+script.js
+-------
+
+document.addEventListener("DOMContentLoaded", () => {
+    const observer = new Intersection Observer((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, {
+        root: null, // viewport
+        threshold: 0.25,
+        rootMargin: "-50%"
+    });
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+    });
+});
+
+
+Directory Structure
+--------
+
+
+/ (root)
+|-- index.html
+|-- css/
+|   |-- main.css
+|-- js/
+|   |-- scripts.js
+|-- img/
+|   |-- image1.jpg
+|   |-- image2.jpg
+
+
+
+HTML to add to page
+-------
+
+
+<script src="js/scripts.js"></script>
+</body>
+</html>
+
+
+04-29-24-PythnGPT code fix chat
+I copied the styles from right clicking the line for <div class="timeline"> from the "inspect" window
+    text-size-adjust: 100%;
+    tab-size: 4;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    --ait-primary-color: rgba(var(--ait-fg-rgb), .8);
+    --ait-primary-text-color: rgba(var(--ait-fg-rgb), .8);
+    --ait-primary-content-text-color: rgba(var(--ait-fg-rgb), .65);
+    --ait-primary-title-color: rgba(var(--ait-fg-rgb), .8);
+    --ait-secondary-text-color: rgba(var(--ait-fg-rgb), .4);
+    --ait-html-bg-color: rgb(240, 242, 245);
+    --ait-option-bg-color: #f0f2f5;
+    --ait-option-card-bg-color: white;
+    --ait-option-card-border: 1px solid #f0f0f0;
+    --ait-border-radius-lg: 12px;
+    --ait-border-radius: 8px;
+    --ait-sidebar-bg-color: #fff;
+    --ait-sidebar-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+    --ait-sidebar-border-color: #ececec;
+    --ait-sidebar-icon-color: #545758;
+    --ait-sidebar-icon-hover-color: #74aa9c;
+    --ait-sidebar-icon-border-color: #ececee;
+    --ait-sidebar-scrollbar-color: #e1e1e1;
+    --ait-sidebar-scrollbar-hover-color: #d9d9d9;
+    --ait-fg-rgb: 0, 0, 0;
+    --ait-bg-rgb: 255, 255, 255;
+    --ait-switchbar-bg-color: #f0f1f5;
+    --ait-switchbar-btn-hover-bg-color: #e9e9ef;
+    --ait-switchbar-shadow: 0px 4px 12px 0px rgba(0, 0, 0, .15);
+    --ait-tab-menu-hover-bg-color: rgba(1, 167, 125, .1);
+    --ait-tab-menu-hover-text-color: var(--ait-primary-text-color);
+    --ait-tab-menu-active-bg-color: rgba(1, 167, 125, .9);
+    --ait-tab-menu-disabled-bg-color: rgba(1, 167, 125, .2);
+    --ait-tab-menu-active-bg-active-color: rgb(0, 211, 157);
+    --ait-tab-menu-active-text-color: #fff;
+    --ait-loading-color: #fff;
+    --ait-link-color: rgba(1, 167, 125, .9);
+    --ait-download-button-bg-color: rgba(255, 255, 255, .5);
+    --ait-bg-opacity: 1 !important;
+    --ait-sidebar-bg-color-sub: rgba(245, 245, 245, var(--ait-bg-opacity)) !important;
+    --ait-border-spacing-x: 0;
+    --ait-border-spacing-y: 0;
+    --ait-translate-x: 0;
+    --ait-translate-y: 0;
+    --ait-rotate: 0;
+    --ait-skew-x: 0;
+    --ait-skew-y: 0;
+    --ait-scale-x: 1;
+    --ait-scale-y: 1;
+    --ait-pan-x: ;
+    --ait-pan-y: ;
+    --ait-pinch-zoom: ;
+    --ait-scroll-snap-strictness: proximity;
+    --ait-gradient-from-position: ;
+    --ait-gradient-via-position: ;
+    --ait-gradient-to-position: ;
+    --ait-ordinal: ;
+    --ait-slashed-zero: ;
+    --ait-numeric-figure: ;
+    --ait-numeric-spacing: ;
+    --ait-numeric-fraction: ;
+    --ait-ring-inset: ;
+    --ait-ring-offset-width: 0px;
+    --ait-ring-offset-color: #fff;
+    --ait-ring-color: rgba(59, 130, 246, .5);
+    --ait-ring-offset-shadow: 0 0 rgba(0,0,0,0);
+    --ait-ring-shadow: 0 0 rgba(0,0,0,0);
+    --ait-shadow: 0 0 rgba(0,0,0,0);
+    --ait-shadow-colored: 0 0 rgba(0,0,0,0);
+    --ait-blur: ;
+    --ait-brightness: ;
+    --ait-contrast: ;
+    --ait-grayscale: ;
+    --ait-hue-rotate: ;
+    --ait-invert: ;
+    --ait-saturate: ;
+    --ait-sepia: ;
+    --ait-drop-shadow: ;
+    --ait-backdrop-blur: ;
+    --ait-backdrop-brightness: ;
+    --ait-backdrop-contrast: ;
+    --ait-backdrop-grayscale: ;
+    --ait-backdrop-hue-rotate: ;
+    --ait-backdrop-invert: ;
+    --ait-backdrop-opacity: ;
+    --ait-backdrop-saturate: ;
+    --ait-backdrop-sepia: ;
+    --rem: 16;
+    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+    --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+    --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+    --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+    --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+    --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+    --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
+    --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+    --color-blue: #007BB6;
+    --color-blue-dark: #005D8A;
+    --color-black: #333333;
+    --color-cloud-light: #FAFAFA;
+    --color-cloud: #F7F7F7;
+    --color-cloud-dark: #f1f1f1;
+    --color-orange: orange;
+    --color-white: #FFFFFF;
+    --color-grey: #B0B0B0;
+    --color-red: #A82255;
+    --size-xxs: 0.5rem;
+    --size-xs: 0.75rem;
+    --size-sm: 1rem;
+    --size-md: 1.5rem;
+    --size-lg: 2rem;
+    --size-xl: 3rem;
+    --size-xxl: 4rem;
+    --size-xxxl: 6rem;
+    --breakpoint-small-desktop: 1260px;
+    font-family: 'Rubik', sans-serif;
+    color: var(--color-black);
+    line-height: inherit;
+    box-sizing: border-box;
+    font-size: inherit;
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+    padding: 40px 0;
+    overflow: hidden;

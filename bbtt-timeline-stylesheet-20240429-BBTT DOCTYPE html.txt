@@ -1,0 +1,104 @@
+/*BBTT-timeline-stylesheet*/ <DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Join &ndash; Builder Broker Thinker Thrive</title>
+
+    <meta name="author" content="Builder Broker Thinker Thrive">
+    <meta name="theme-color" content="#333333">
+    <link rel="icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/02css/timeline.css?v=1">
+
+  
+</head>
+
+<body>
+<header>
+        <div class="constrain">
+            <a href="/" class="logo" style="color: black; hover: color: blue;">Builder Broker Thinker Thrive</a>
+            <nav class="no-mobile">
+                
+
+
+<a href="/blog">Essays & Articles</a>
+<a href="/now">Reach out</a>
+<a href="/about">About</a>
+<a class="rss" href="/static/feed.rss" title="RSS feed">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="14" height="14"> <path d="M0 0v4c9.93 0 18 8.07 18 18h4C22 9.85 12.15 0 0 0Zm0 7v4c6.07 0 11 4.93 11 11h4C15 13.72 8.28 7 0 7Zm3 9a3 3 0 0 0 0 6 3 3 0 0 0 0-6z"></path> </svg>
+</a>
+
+            </nav>
+            
+            <a href="/menu" class="mobile menu-icon" title="Menu">
+<svg viewBox="0 0 100 80" width="20" height="20"> <rect width="100" height="20"></rect> <rect y="30" width="100" height="20"></rect> <rect y="60" width="100" height="20"></rect> </svg>
+</a>
+            
+        </div>
+    </header>
+
+ <main>
+
+ <!-- Start of timeline items -->
+
+<div class="timeline">
+  <div class="timeline-line"></div> <!-- Central line -->
+  
+  <!-- Left Item -->
+  <div class="timeline-item left" data-date="January 1997">
+    <h3>Event Title</h3>
+    <p>Description of the event. <a href="#">Read more</a></p>
+    <img src="path_to_image.jpg" alt="Event Image">
+  </div>
+  
+  <!-- Right Item -->
+  <div class="timeline-item right" data-date="February 1997">
+    <h3>Next Event</h3>
+    <p>Description of the next event. <a href="#">Read more</a></p>
+    <img src="path_to_image.jpg" alt="Event Image">
+  </div>
+  
+  <!-- Additional items... -->
+</div>
+
+ <!-- End of timeline items -->
+ 
+</main>
+
+<footer>
+    <div class="constrain">
+        <div class="footer-left">
+            © Copyright 2018-2024 - Builder Broker Thinker Thrive
+            <br>Code snippets are available at <a href="https://joinbbtt.com">Join BBTT</a>
+            <br><a href="https://joinbbtt.com/home">Disclaimer</a>
+        </div>
+        <div class="footer-right">
+            Enjoy the rest of your <span id="weekday">Saturday</span>!
+        </div>
+    </div>
+</footer>
+    <script type="text/javascript">
+        function setDay() {
+            let date = new Date();
+            let weekday = date.toLocaleDateString("en", {
+                weekday: "long"
+            });
+            document.getElementById("weekday").innerHTML = weekday;
+        }
+        window.addEventListener('DOMContentLoaded', function (event) {
+            setDay();
+        });
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHC7R1PYQR"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FHC7R1PYQR');
+    </script>
+    <script src="/03js/scripts.js"></script>
+</body>
+</html>
